@@ -12,8 +12,14 @@ void print_buf(int *buf, int buf_size) {
 
 // "nb" power to "pow"
 int nb_power_pow(int nb, int pow) {
-  int result = nb;
-  for (size_t i = 0; i < pow; i++) {
+  // x^0 = 1
+  if (pow == 0) {
+    return 1;
+  }
+
+  // x^1 = x
+  int result = nb; //2
+  for (size_t i = 1; i < pow; i++) {
     result = result*nb;
   }
 
@@ -26,7 +32,7 @@ void initialize_buffer(int buffer[], size_t buf_size) {
   }
 }
 
-// decimal to binary
+// decimal to binary (bits in buf are in lsb order)
 void decimal_binary(int *buf, int nb) {
   int index = 0;
 
@@ -38,7 +44,7 @@ void decimal_binary(int *buf, int nb) {
     // first bit starts always with 1
     if (nb == 1) {
       buf[index] = 1;
-      index++;
+      index++; // not necessaire
       break;
     }
   }
@@ -72,16 +78,32 @@ int buf_size(int nb) {
   return nb_bits+1;
 }
 
+int binary_decimal(int *buf, int buf_size) {
+  int decimal = 0;
+  for (size_t i = 0; i < buf_size; i++) {
+    if (buf[i]) {
+      // printf("index = %d\n", i);
+      decimal += nb_power_pow(2, i);
+      // printf("decimal value = %d\n", nb_power_pow(2, i));
+    }
+  }
+
+  return decimal;
+}
 
 int main(int argc, char const *argv[]) {
   int decimal = 26; // user input
   const int BUFFER_SIZE = buf_size(decimal);
 
-  int buf_binary[BUFFER_SIZE];
+  // int buf_binary[BUFFER_SIZE];
+  int buf[6] = {0, 1, 1, 1, 1};
 
-  initialize_buffer(buf_binary, BUFFER_SIZE);
-  decimal_binary(buf_binary, decimal);
-  print_buf(buf_binary, BUFFER_SIZE);
+  // initialize_buffer(buf_binary, BUFFER_SIZE);
+  // decimal_binary(buf_binary, decimal);
+  // print_buf(buf_binary, BUFFER_SIZE);
+
+  printf("%d\n", binary_decimal(buf, 5));
+  // binary_decimal(buf_binary, BUFFER_SIZE);
 
   return 0;
 }

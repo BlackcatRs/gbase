@@ -1,5 +1,25 @@
 #include <stdio.h>
 
+// print buf
+void print_buf(int *buf, int buf_size) {
+  // print buf in reverse order
+  for (int i = buf_size-1; i >= 0; i--) {
+    printf("%d", buf[i]);
+  }
+
+  printf("\n");
+}
+
+// "nb" power to "pow"
+int nb_power_pow(int nb, int pow) {
+  int result = nb;
+  for (size_t i = 0; i < pow; i++) {
+    result = result*nb;
+  }
+
+  return result;
+}
+
 void initialize_buffer(int buffer[], size_t buf_size) {
   for (size_t i = 0; i < buf_size; i++) {
     buffer[i] = 0;
@@ -27,33 +47,41 @@ void decimal_binary(int *buf, int nb) {
 
 // determine buf size
 int buf_size(int nb) {
-  
+  int nb_bits = 1;
+  /*
+  nb_power_pow(2, power) values possible with "power" bits
+  ex :
+    power = 2
+    nb_power_pow(2, power) = 4 values possible
+                          or
+    2^2 = 4 values possible
+    2 bits can represent 0-3 in decimal.
+    _____________________
+    | Binary  | Decimal |
+    |   00    |   0     |
+    |   01    |   1     |
+    |   10    |   1     |
+    |   11    |   3     |
+     -------------------
+
+  */
+  while (nb > (nb_power_pow(2, nb_bits)-1)) {
+    nb_bits++;
+  }
+
+  return nb_bits+1;
 }
 
 
 int main(int argc, char const *argv[]) {
-  int decimal = 30;
-  int result = decimal;
-  /*
-  buffer size need to be large enough to hold all bits,
-  solution 1
-    use decimal number to determine buffer size
-    2^1 = 2 if decimal < 2 use this
-    2^2 = 4 if decimal < 4 use this
+  int decimal = 26; // user input
+  const int BUFFER_SIZE = buf_size(decimal);
 
-  solution 2
-    buffer resize automatically (there must be if condition check space in buf)
-  */
+  int buf_binary[BUFFER_SIZE];
 
-  int binary[50];
-
-  initialize_buffer(binary, 50);
-  decimal_binary(binary, decimal);
-
-
-  for (int i = 50; i >= 0; i--) {
-    printf("%d\n", binary[i]);
-  }
+  initialize_buffer(buf_binary, BUFFER_SIZE);
+  decimal_binary(buf_binary, decimal);
+  print_buf(buf_binary, BUFFER_SIZE);
 
   return 0;
 }
@@ -76,4 +104,14 @@ int main(int argc, char const *argv[]) {
 
 
 
+*/
+/*
+buffer size need to be large enough to hold all bits,
+solution 1
+  use decimal number to determine buffer size
+  2^1 = 2 if decimal < 2 use this
+  2^2 = 4 if decimal < 4 use this
+
+solution 2
+  buffer resize automatically (there must be if condition check space in buf)
 */

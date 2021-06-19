@@ -6,6 +6,13 @@ TO DO :
 */
 
 /*
+  Binary number is a number expressed in the base-2 numeral system or binary
+  numeral system, a method of mathematical expression which uses only two
+  symbols: typically "0" (zero) and "1" (one).
+
+  base 16
+    one number in base-16 can reprensent one of 16 symbols
+
   decimal to binary
   divided into 4 bits
   and do the conresponding with hex table

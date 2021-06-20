@@ -30,28 +30,45 @@ TO DO :
 // Decimal to Hexadecimal in C
 // ----codescracker.com----
 
-#include<stdio.h>
-// #include<conio.h>
+#include <stdio.h>
+// #include <conio.h>
 int main()
 {
   int decnum, rem, i=0;
   char hexnum[50];
   printf("Enter any decimal number: ");
   scanf("%d", &decnum);
-  while(decnum!=0)
-  {
+  while(decnum!=0) {
       rem = decnum%16;
+      // using ascii table to represente A to F hex letters and 0 to 9 numbers
       if(rem<10)
           rem = rem+48;
       else
           rem = rem+55;
       hexnum[i] = rem;
       i++;
-      decnum = decnum/16;
+      decnum = decnum/16; // moving on with remaing value until 0
   }
+
   printf("\nEquivalent Value in Hexadecimal = ");
   for(i=i-1; i>=0; i--)
       printf("%c", hexnum[i]);
   // getch();
   return 0;
 }
+
+/*
+rem = 800 % 16 = 0
+if rem < 10
+  rem=+48
+decimal = 50
+
+
+pour 23 il faut 5 bits
+
+0 - 15 = 1 seule suffit
+
+
+
+
+*/

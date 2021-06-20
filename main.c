@@ -51,6 +51,23 @@ void decimal_binary(int *buf, int nb) {
 
 }
 
+void decimal_hex(int decnum, char *hexnum) {
+  int rem, i=0;
+
+  while(decnum!=0) {
+      rem = decnum%16;
+      // using ascii table to represente A to F hex letters and 0 to 9 numbers
+      if(rem<10)
+          rem = rem+48;
+      else
+          rem = rem+55;
+      hexnum[i] = rem;
+      i++;
+      decnum = decnum/16; // moving on with remaing value until 0
+  }
+
+}
+
 // determine buf size
 int buf_size(int nb) {
   int nb_bits = 1;

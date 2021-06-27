@@ -1,4 +1,3 @@
-#include <stdio.h>
 /*
 TO DO :
   nb_power_pow() 2nd parm name need to change to x
@@ -24,14 +23,21 @@ TO DO :
 
 */
 
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef enum {
+  monday,
+  tue,
+  wed
+} Days;
 
 
 int main(int argc, char const *argv[]) {
-  char nom[5];
-  char prenom[5];
+  Days *current_date = (Days *) malloc(sizeof(Days));
+  *current_date = wed;
 
-  scanf("%s %s", nom, prenom);
-  printf("%s, %s\n", nom, prenom);
+  printf("%d\n", *current_date);
   return 0;
 }
 

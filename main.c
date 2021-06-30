@@ -77,6 +77,14 @@ char* conversion(InputData user_data) {
   // char buffer[32] = {0};
   char* buffer = (char*) malloc(32 * sizeof(char));
 
+  /*
+  signed int :
+  0000 0000 0000 0111 = 7
+
+  0000 0000 0000  1 111 = -7
+  1111 1111 1111  1 000 = one's complement
+  1111 1111 1111  1 001 = two's complement (add one)
+  */
   if(user_data.input_base == 10 && user_data.sign)
     sprintf(buffer, "%ld", user_data.input_data);
   else {

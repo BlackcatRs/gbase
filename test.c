@@ -3,10 +3,30 @@
 
 
 int main(int argc, char const *argv[]) {
-  int input = strtol(argv[1], (char **)NULL, 2);
-  printf("%s\n", input);
+  int n = -8;
+  while (n > 1) {
+    if (n & 1)
+        printf("1");
+    else
+        printf("0");
+
+    n >>= 1;
+}
+printf("\n");
+
+
   return 0;
 }
+
+
+/*
+0000 0000 0000 0111 = 7
+
+0000 0000 0000  1 111 = -7
+1111 1111 1111  1 000 = one's complement
+1111 1111 1111  1 001 = two's complement (add one)
+*/
+
 
 
 /*

@@ -2,14 +2,6 @@
 #include <stdlib.h>
 #include <string.h> //strcmp()
 
-// #define BIN 2
-// #define OCT 8
-// #define DEC 10
-// #define HEX 16
-
-// char *labels[] = {"Dec", "Hex", "Oct", "Bin"};
-// int bases[] = {DEC, HEX, OCT, BIN};
-
 typedef enum {
   BIN = 2,
   OCT = 8,
@@ -27,13 +19,13 @@ typedef struct {
 long int process_input();
 InputData process_args(int argc, char const *argv[]);
 char* conversion(InputData user_data);
+void print_buffer(InputData user_data);
 void help();
 
 
 int main(int argc, char const *argv[]) {
   InputData data = process_args(argc, argv);
-  char* buffer = conversion(data);
-  printf("%s\n", buffer);
+  print_buffer(data);
 
   return 0;
 }
@@ -65,20 +57,20 @@ InputData process_args(int argc, char const *argv[]) {
 
     if(!strcmp(argv[i], "-d")) {
       user_data.input_base = 10;
-      user_data.input_data = process_input(argv[i+1], user_data.input_base);
     } else if(!strcmp(argv[i], "-h")) {
       user_data.input_base = 16;
-      user_data.input_data = process_input(argv[i+1], user_data.input_base);
     } else if(!strcmp(argv[i], "-o")) {
       user_data.input_base = 8;
-      user_data.input_data = process_input(argv[i+1], user_data.input_base);
     } else if(!strcmp(argv[i], "-b")) {
       user_data.input_base = 2;
-      user_data.input_data = process_input(argv[i+1], user_data.input_base);
-    } else
+    } else {
       help();
+      exit(1);
+    }
+
+    user_data.input_data = process_input(argv[i+1], user_data.input_base);
+    return user_data;
   }
-  return user_data;
 }
 
 char* conversion(InputData user_data) {
@@ -113,6 +105,18 @@ char* conversion(InputData user_data) {
     }
   }
   return buffer;
+}
+
+void print_buffer(InputData user_data) {
+  int bases[] = {10, 16, 8, 2};
+  char* bases_names[] = {"Dec", "Hex", "Oct", "Bin"};
+
+  for (size_t i = 0; i < 4; i++) {
+    if (user_data.input_base != bases[i])
+      user_data.input_base = bases[i];
+    printf("%s: %s\n", bases_names[i], conversion(user_data));
+  }
+
 }
 
 void help() {

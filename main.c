@@ -96,6 +96,7 @@ char* conversion(InputData user_data) {
         int pos;
         // eliminate zeros (junks) in front of int
         for(i = 31; i > 0 && !((1<<i) & user_data.input_data); i--);
+        // transforming decimal number to binary
         for(pos = 0;i > -1; buffer[pos++] = ((1<<i--) & user_data.input_data) ? '1' : '0');
         buffer[pos] = '\0';
         break;

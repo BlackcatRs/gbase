@@ -1,19 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 
 int main(int argc, char const *argv[]) {
-  int answer = 2;
-  switch (answer) {
-    case 1:
-      printf("case 1\n");
-      break;
-    case 2:{
-      int age = 23;
-      printf("age is %d\n", age);
-      break;}
-    default:
-      printf("default\n");
-
-  }
+  int input = strtol(argv[1], (char **)NULL, 2);
+  printf("%s\n", input);
   return 0;
 }
 

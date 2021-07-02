@@ -1,35 +1,43 @@
-#include <stdio.h>
-#include <stdlib.h>
+/*
+"67" est de type de char*
+parcourir la lettre par lettre
+recupere la coresspondance en dec a l'aide de l"ascii
+multiplier par 10
 
+et puis 2eme lettre
+
+la difference entre int et char est la taille
+donc une chaine de caracteres est un ensemeble de chars
+
+
+43 = +
+48 = 0
+
+in char* format
+  00101011 00110000
+
+in int format
+11056
+
+
+
+*/
+
+#include <stdio.h>
 
 int main(int argc, char const *argv[]) {
-  int n = -8;
-  while (n > 1) {
-    if (n & 1)
-        printf("1");
-    else
-        printf("0");
-
-    n >>= 1;
-}
-printf("\n");
-
-
+  int nb = 128516; //emoji
+  printf("%ls\n", &nb);
   return 0;
 }
 
 
-/*
-0000 0000 0000 0111 = 7
-
-0000 0000 0000  1 111 = -7
-1111 1111 1111  1 000 = one's complement
-1111 1111 1111  1 001 = two's complement (add one)
-*/
 
 
 
-/*
+
+
+
 // #include <stdio.h>
 //
 // int main() {
@@ -39,15 +47,3 @@ printf("\n");
 //   printf("%s\n", smily);
 //   // printf("%ld", sizeof(tamil));
 // }
-
-
-/*
-TO DO :
-  process_args()
-  conversion()
-  help()
-
-  overflow_detection()
-  dynamic_conversion()
-
-*/

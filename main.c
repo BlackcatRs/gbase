@@ -1,3 +1,14 @@
+/*
+TO DO :
+  process_args()
+  conversion()
+  help()
+
+  overflow_detection()
+  dynamic_conversion()
+
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> //strcmp()

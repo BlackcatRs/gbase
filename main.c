@@ -1,14 +1,3 @@
-/*
-TO DO :
-  process_args()
-  conversion()
-  help()
-
-  overflow_detection()
-  dynamic_conversion()
-
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> //strcmp()
@@ -43,6 +32,7 @@ int main(int argc, char const *argv[]) {
 
 
 long int process_input(const char* input, int base) {
+  // stop here - what to do when long int (8 bytes) overflow
   long int user_input = strtol(input, (char **)NULL, base);
   return user_input;
 }

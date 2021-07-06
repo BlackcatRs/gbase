@@ -9,7 +9,12 @@ et puis 2eme lettre
 
 la difference entre int et char est la taille
 donc une chaine de caracteres est un ensemeble de chars
+*/
 
+
+/*
+to negate a number, you need to transform the number to 2's complement
+so you need to know adding and substructig two binaries
 */
 
 
@@ -27,19 +32,10 @@ int main() {
 
 
 /*
-4  = 0000 0000   0000 0100
--4 = 1111 1111   1111 1100
+what to do when char overflow
 
-
-4  = 0000 0000   0000 0100
-     1111 1111   1111 1
-
-on utilise pas 2's complement tout le temps
-il faut finir regarder la video
-
-
-
-
+store 257 in char
+store 
 
 
 */

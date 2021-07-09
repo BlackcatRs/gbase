@@ -33,9 +33,28 @@ int main() {
 
 /*
 what to do when char overflow
+  create a int array
+  define multiplication methode
+         division
+         adding
+         substraction
 
-store 257 in char
-store 
+
+TO DO:
+        binary substruction
+                division
+
+
+
+
+let me explain :
+  5434
+x    2
+ 10838
+
+p[] = {10, 8, 3, 8}
+
+
 
 
 */

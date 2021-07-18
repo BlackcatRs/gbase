@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define BASE 10
-#define N 10
+#define N 10 /* allocate dynamically */
 
 void make_int (int A[], int n);
 void increment (int A[]);
@@ -12,8 +12,8 @@ void shift_left (int A[], int n);
 
 
 int main(int argc, char const *argv[]) {
-  int small_A = 17;
-  int small_B = 21;
+  int small_A = 345;
+  int small_B = 234;
 
   int large_A[N];
   int large_B[N];
@@ -25,7 +25,7 @@ int main(int argc, char const *argv[]) {
   multiply (large_A, large_B, large_result);
 
   for (int i = 0; i < N-1; i++) {
-    printf("%d\n", large_A[i]);
+    printf("%d\n", large_result[i]);
   }
 
 
@@ -184,4 +184,11 @@ void shift_left (int A[], int n) {
 
 	/* fill the last n digits with zeros */
 	while (i >= 0) A[i--] = 0;
+
+  /* print A[] */
+  // printf("shift left : ");
+  // for (int i = 0; i < N; i++) {
+  //   printf("%d ", A[i]);
+  // }
+  // printf("\n");
 }

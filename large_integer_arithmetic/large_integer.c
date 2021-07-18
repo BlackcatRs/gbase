@@ -10,7 +10,12 @@ what consume resources
 // TO DO : malloc dynamic
 // TO DO : return struct (buff + size)
 int* own_atoi(char const argv[]) {
-	static int large_interger[31];
+	int buf_size;
+	while (argv[buf_size] != '\0') {
+		buf_size++;
+	}
+
+	static int large_interger[buf_size];
 	int i = 0;
 
 	while (argv[i] != '\0') {
@@ -36,7 +41,17 @@ int main(int argc, char const *argv[]) {
 
 
 
+/*
+___Big O___
 
+[5, 7]
+
+
+
+
+
+
+*/
 
 
 

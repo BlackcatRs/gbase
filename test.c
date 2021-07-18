@@ -25,8 +25,16 @@ int main() {
   // char* tamil = "\u0BA4";
   // long int max_value = (1,844674407)*(10*19);
   // long int max_value = (9,223372037)*(10*18);
-  unsigned char a = -4;
-  printf("%d\n", a);
+  int i = 5;
+  char buffer[i];
+
+  for (size_t i = 0; i < 5; i++) {
+    buffer[i] = 'v';
+  }
+
+  for (size_t i = 0; i < 5; i++) {
+    printf("%c\n", buffer[i]);
+  }
 
 }
 

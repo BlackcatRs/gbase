@@ -1,6 +1,6 @@
 #include <stdio.h>
 #define BASE 10
-#define N 10 /* allocate dynamically */
+#define N 10 /* TO DO : allocate dynamically */
 
 void make_int (int A[], int n);
 void increment (int A[]);

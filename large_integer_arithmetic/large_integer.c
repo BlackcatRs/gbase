@@ -27,6 +27,8 @@ int* own_atoi(char const argv[]) {
 	return large_interger;
 }
 
+
+
 int main(int argc, char const *argv[]) {
 	int *nb = own_atoi(argv[1]);
 
@@ -38,13 +40,21 @@ int main(int argc, char const *argv[]) {
 }
 
 
-
-
-
 /*
-___Big O___
+how to add bits ?
 
-[5, 7]
+int[] add_binary(int large_interger[]);
+
+dec -> bin
+			 hex
+
+hex -> dec
+			 bin
+
+bin -> dec
+			 hex
+
+
 
 
 
@@ -52,23 +62,3 @@ ___Big O___
 
 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//

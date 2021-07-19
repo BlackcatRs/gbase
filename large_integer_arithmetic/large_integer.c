@@ -43,9 +43,9 @@ int main(int argc, char const *argv[]) {
 /*
 how to add bits ?
 
-int[] add_binary(int large_interger[]);
 
-dec -> bin
+
+dec -> bin		int[] add_binary(int large_interger[]);
 			 hex
 
 hex -> dec

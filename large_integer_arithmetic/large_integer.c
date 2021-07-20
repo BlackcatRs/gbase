@@ -1,27 +1,21 @@
-/*
-what consume resources
-	- loop
-	- malloc et realloc
-*/
-
 #include <stdio.h>
+#include <stdlib.h>
 
-
-// TO DO : malloc dynamic
-// TO DO : return struct (buff + size)
 int* own_atoi(char const argv[]) {
-	int buf_size;
-	while (argv[buf_size] != '\0') {
-		buf_size++;
+	// find input data's length
+	int len_input = 0;
+	while (argv[len_input] != '\0') {
+		len_input++;
 	}
 
-	static int large_interger[buf_size];
-	int i = 0;
+	// printf("size of len_input = %d\n", len_input);
+	int* large_interger = malloc(len_input * sizeof(int));
 
-	while (argv[i] != '\0') {
+	*large_interger = len_input; // large_interger[0] contain length of array
+
+	for (int i = 1; i < len_input; i++) {
 		large_interger[i] = argv[i]; // char to int
 		large_interger[i] -= 48; // modulo
-		i++;
 	}
 
 	return large_interger;
@@ -30,17 +24,17 @@ int* own_atoi(char const argv[]) {
 
 
 int main(int argc, char const *argv[]) {
-	int *nb = own_atoi(argv[1]);
+	int* nb = own_atoi(argv[1]);
 
-	for (size_t i = 0; i < 6; i++) {
+	for (size_t i = 1; i < *(nb+0); i++) {
 		printf("%d\n", nb[i]);
 	}
 
   return 0;
 }
 
-
 /*
+
 how to add bits ?
 
 
@@ -53,12 +47,6 @@ hex -> dec
 
 bin -> dec
 			 hex
-
-
-
-
-
-
 
 
 */

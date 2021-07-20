@@ -1,0 +1,5 @@
+/*
+what consume resources
+	- loop
+	- malloc et realloc
+*/

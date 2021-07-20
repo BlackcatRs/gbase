@@ -174,6 +174,7 @@ void multiply_one_digit (int A[], int B[], int n) {
 
 
 /* "multiplies" a number by BASEn */
+// add one 0 in front of an array for every call
 void shift_left (int A[], int n) {
 	int	i;
 

@@ -1,13 +1,15 @@
+// user data after input process
 typedef struct {
   long int input_data;
   int sign;
   InputBase input_base;
 } InputData;
 
-int* own_atoi(char const argv[]) {
+// char to int[]
+int* own_atoi(char const user_input[]) {
 	// find input data's length
 	int len_input = 0;
-	while (argv[len_input] != '\0') {
+	while (user_input[len_input] != '\0') {
 		len_input++;
 	}
 
@@ -16,7 +18,7 @@ int* own_atoi(char const argv[]) {
 	*large_interger = len_input; // large_interger[0] contain length of array
 
 	for (int i = 1; i < len_input; i++) {
-		large_interger[i] = argv[i]; // char to int
+		large_interger[i] = user_input[i]; // char to int
 		large_interger[i] -= 48; // modulo
 	}
 
@@ -29,6 +31,7 @@ long int process_input(const char* input, int base) {
   return user_input;
 }
 
+// process user's input
 InputData process_args(int argc, char const *argv[]) {
   InputData user_data;
 

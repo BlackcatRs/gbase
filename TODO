@@ -1,0 +1,12 @@
+/*
+what consume resources
+	- loop
+	- malloc et realloc
+*/
+
+int* own_atoi(char const argv[]) return large_interger[], large_interger[0] is
+total numbers in this array.
+So 8 bytes + X
+	 8 bytes = sizeof x
+
+-> need to prevent large_interger[0]

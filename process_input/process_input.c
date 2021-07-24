@@ -1,26 +1,32 @@
-// user data after input process
-typedef struct {
-  long int input_data;
-  int sign;
-  InputBase input_base;
-} InputData;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h> //strcmp()
+#include <stddef.h> // for NULL
+#include "process_input.h"
 
 // char to int[]
-int* own_atoi(char const user_input[]) {
+LargeInterger* own_atoi(char const user_input[]) {
+  // NEED : free this malloc
+  LargeInterger* large_interger = malloc(sizeof(LargeInterger));
+
 	// find input data's length
 	int len_input = 0;
 	while (user_input[len_input] != '\0') {
 		len_input++;
 	}
 
-	int* large_interger = (int*) malloc(len_input * sizeof(int));
+  // NEED : free this malloc
+	large_interger->array = malloc(len_input * sizeof(int));
+  large_interger->len = malloc(sizeof(int)); // TODO: need to be dynamic
 
-	*large_interger = len_input; // large_interger[0] contain length of array
+  *large_interger->len = len_input;
 
-	for (int i = 1; i < len_input; i++) {
-		large_interger[i] = user_input[i]; // char to int
-		large_interger[i] -= 48; // modulo
+	for (int i = 0; i < len_input; i++) {
+		large_interger->array[i] = user_input[i]; // char to int
+		large_interger->array[i] -= 48; // modulo
 	}
+  // printf("i am here\n");
+
 
 	return large_interger;
 }
@@ -37,7 +43,7 @@ InputData process_args(int argc, char const *argv[]) {
 
   for (int i = 1; i < argc; i++) {
     if(strcmp(argv[i], "--help") == 0) {
-      help();
+      // help();
       exit(0);
     }
 
@@ -60,7 +66,7 @@ InputData process_args(int argc, char const *argv[]) {
     } else if(!strcmp(argv[i], "-b")) {
       user_data.input_base = 2;
     } else {
-      help();
+      // help();
       exit(1);
     }
 

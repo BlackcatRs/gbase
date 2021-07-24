@@ -1,5 +1,3 @@
-#include <stdio.h> // for printf
-
 /*
 Binary addition
 0+0 = 0
@@ -7,6 +5,9 @@ Binary addition
 1+0 = 1
 1+1 = 0 (1 carries out)
 */
+
+#include <stdio.h> // for printf
+
 // increment one bit
 void incremnt_bit(char buf[]) {
   int i = 0;
@@ -29,5 +30,4 @@ void incremnt_bit(char buf[]) {
 
   // TO DO: prevent overflow
   if (carry == '1') printf ("overflow in addition!\n");
-
 }

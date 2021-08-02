@@ -29,7 +29,7 @@ displays version information.
 
 .TP
 .BR \-s
-indicates that input value is sign
+input alue is signed (+/-)
 
 .TP
 .BR \-d

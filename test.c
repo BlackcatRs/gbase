@@ -1,68 +1,63 @@
-/*
-___own atoi function___
-"67" est de type de char*
-parcourir la lettre par lettre
-recupere la coresspondance en dec a l'aide de l"ascii
-multiplier par 10
-
-et puis 2eme lettre
-
-la difference entre int et char est la taille
-donc une chaine de caracteres est un ensemeble de chars
-*/
-
-
-/*
-to negate a number, you need to transform the number to 2's complement
-so you need to know adding and substructig two binaries
-*/
-
-
-
 #include <stdio.h>
+#include <stdlib.h>
 
-int main() {
-  // char* tamil = "\u0BA4";
-  // long int max_value = (1,844674407)*(10*19);
-  // long int max_value = (9,223372037)*(10*18);
-  int i = 5;
-  char buffer[i];
+int main(int argc, char const *argv[]) {
+  // printf("%d\n", argc);
+  char buffer[50];
 
-  for (size_t i = 0; i < 5; i++) {
-    buffer[i] = 'v';
-  }
+  // converts the initial part of the string in str to an unsigned long int
+  // value according to the given base
+  long int accumulator = strtol(argv[1], (char **)NULL, 2);
 
-  for (size_t i = 0; i < 5; i++) {
-    printf("%c\n", buffer[i]);
-  }
+  sprintf(buffer, "%lu", accumulator);
+  printf("%s\n", buffer);
 
+  // int accumulator = 10110011;
+
+
+  return 0;
 }
 
-
 /*
-what to do when char overflow
-  create a int array
-  define multiplication methode
-         division
-         adding
-         substraction
+1011 = 11
+0000 = 0
+----
+0000
 
 
-TO DO:
-        binary substruction
-                division
+1011 = 11
+0001 = 1
+----
+0001
+
+
+1011 = 11
+0010 = 2
+----
+0010
+
+1011 = 11
+0100 = 4
+----
+0000
+
+
+1011 = 11
+1000 = 8
+----
+1000
 
 
 
-
-let me explain :
-  5434
-x    2
- 10838
-
-p[] = {10, 8, 3, 8}
+                    0011
+                    1000 0100 0010 0001
 
 
 
+2 = 0100
+3 = 1000
 
+
+000 0000 0000 0000 0000 0000 0000 0001
+100 0000 0000 0000 0000 0000 0000 0000
 */
